@@ -12,28 +12,56 @@ class Main extends Component {
         points: 0,
         highScore: 0,
         gameOver: false,
-        animals: {...Photos}
+        animals: [...Photos]
     }
     componentDidMount() {
         console.log("Rendered");
 
+    }
+    changeIndex(){
+        const rnd = this.randomizer();
+        let array = [...this.state.animals];
+
+        for(let i = 0; i < array.length;i++){
+            array[i].id = rnd();
+        }
+
+        this.sort(array);
 
     }
+    sort(arr){
+
+        for(let i = 0; i < arr.length; i++){
+            for(let a = 0; a < arr.length; a++){
+                if(arr[a] > arr[a + 1]){
+                    let lesser = arr[a + 1];
+                    arr[a + 1] = arr[a];
+                    arr[a] = lesser;
+                }
+            }
+
+        }
+
+        this.shuffle(arr);
+
+    }
+    shuffle(arr){
+        this.setState(this.state.animals = arr);
+    }
+    randomizer(){
+        return Math.floor(Math.random() * 12);
+    }
     render() {
-        let photoGroup = Photos.map( pic => <Card id={pic.id} img={pic.src} />)
-
-
+        let animals = this.state.animals.map(pic => <Card id={pic.id} img={pic.src} />)
         return (
             <div>
-                <Navbar />
+                <Navbar score={this.state.points} highScore={this.state.highScore} />
                 <Container>
                     
                     <Hero />
                     <Row>
-                        <Col>
-                            <ul>
-                                {photoGroup}
-                            </ul>
+                        <Col size="md-12">
+                            {animals}
                         </Col>
                     </Row>
                 </Container>

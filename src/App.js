@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Footer from './components/Footer/index';
 import Wrapper from './components/Wrapper';
 import Main from './pages/Main';
@@ -10,6 +9,7 @@ class App extends Component {
     return (
       <div>
         <Wrapper>
+
             <Main />
         </Wrapper>
         <Footer />
