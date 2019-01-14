@@ -13,37 +13,60 @@ class Main extends Component {
         points: 0,
         highScore: 0,
         gameOver: false,
-        animals: Photos
+        animals: Photos,
+        clicked: []
     }
-    indexShuffle(){
+    indexShuffle(arr){
+        for(let i = 0; i < arr.length; i++){
+            let rnd = Math.floor(Math.random() * arr.length);
+            let temp = arr[i];
+            arr[i] = arr[rnd];
+            arr[rnd] = temp;
+        }
+        
+        return arr;
 
     }
-    randomizer(){
-        return Math.floor(Math.random() * 12);
+    handlePhotoClick = (i) => {
+        const id = i;
+        let newState = {...this.state}
+        for(let i = 0; i < this.state.clicked.length; i++){
+            if(this.state.clicked[i] === id){
+                return this.setState({
+                    points: 0,
+                    gameOver: false,
+                    animals: this.indexShuffle(newState.animals),
+                    clicked: []
+                });
+            }
+        }
+        
+        newState.clicked.push(id);
+        newState.points++;
+
+        if(newState.highScore < newState.points){
+            newState.highScore = newState.points;
+        }
+        newState.animals = this.indexShuffle(newState.animals);
+
+        this.setState(newState);
     }
     render() {
-        let animals = Photos;
-        let ani = animals.map(pic => <Card key={pic.id} img={pic.src} alt="red-panda" />);
+        let animals = this.state.animals;
+        let cards = animals.map(pic => <Card onClick={() => this.handlePhotoClick(pic.id)} data-value={pic.id} key={pic.id} img={pic.src} alt="red-panda" />);
 
         return (
             <div>
                 <Navbar score={this.state.points} high={this.state.highScore} />
                 <Hero />
                 <Container>
-                    
-                        
                     <Row style={{margin: "5rem"}}>
                         <Col size="md-12">
-                        {ani}
+                        {cards}
                         </Col>
                     </Row>
-                    
                 </Container>
-                
                 <Footer />
-            
-                
-            
             </div>
 
         );
