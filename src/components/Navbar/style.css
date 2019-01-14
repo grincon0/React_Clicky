@@ -1,0 +1,25 @@
+.far{
+    position: relative;
+    left:100%;
+    
+}
+
+.full{
+    width:100%; 
+}
+
+.item-a{
+    float: left;
+    margin: 5px;
+
+}
+
+.navbar{
+    position: fixed;
+    z-index:99;
+    width:100%;
+    -webkit-box-shadow: 1px 3px 32px 4px rgba(122,122,122,1);
+    -moz-box-shadow: 1px 3px 32px 4px rgba(122,122,122,1);
+    box-shadow:1px 3px 32px 4px rgba(122,122,122,1);
+    background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+}

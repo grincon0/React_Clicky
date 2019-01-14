@@ -1,26 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./style.css";
 
-
-function NavBar(props){
-
-
-    return(
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link className="navbar-brand" to="/">
-            Clickster
-            </Link>
-            <div>
-                <ul className="navbar-nav">
+function NavBar(props) {
+    return (
+        <nav className="navbar navbar-expand-lg nav-back">
+            
+                <ul className="navbar-nav full">
                     <li className="nav-item">
-                        Click any image to begin
-                    </li>
-                    <li className="nav-item">
-                        <h4>Score: {props.score} </h4>
-                        <h4>|</h4>
-                        <h4>High Score: {props.high}</h4>
+                        <a href="/">Clickster</a>
                     </li>
                 </ul>
+            
+            <div style={{width:'100%'}} >
+                <p style={{float: 'right'}}>Score: {props.score} | High Score: {props.high} </p>
             </div>
         </nav>
     );

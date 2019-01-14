@@ -1,13 +1,14 @@
 import React from "react";
+import "./style.css";
 
-function Footer(props){
+function Footer(){
 
-    return(
-        <Footer className={`Footer`} {...props}>
-        George Rincon 2019
-    </Footer>
+    return( <footer className="footer" >
+        <span>React-Clickster 2019</span>
+    </footer>
+    
     );
-
+    
 }
 
 export default Footer;
