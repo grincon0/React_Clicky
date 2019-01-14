@@ -28,8 +28,9 @@ class Main extends Component {
         return (
             <div>
                 <Navbar score={this.state.points} high={this.state.highScore} />
+                <Hero />
                 <Container>
-                    <Hero />
+                    
                         
                     <Row style={{margin: "5rem"}}>
                         <Col size="md-12">

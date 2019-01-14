@@ -11,8 +11,8 @@ function NavBar(props) {
                     </li>
                 </ul>
             
-            <div style={{width:'100%'}} >
-                <p style={{float: 'right'}}>Score: {props.score} | High Score: {props.high} </p>
+            <div style={{width:'100%', marginTop: '15px'}} >
+                <p style={{color: 'white',float: 'right'}}>Score: {props.score} | High Score: {props.high} </p>
             </div>
         </nav>
     );
