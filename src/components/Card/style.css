@@ -1,4 +1,25 @@
 .picHolder{
     float: left;
-    margin: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom:15px;
+    
+}
+
+.card-img-top{
+    -webkit-box-shadow: 1px 3px 29px 4px rgba(64,78,166,1);
+    -moz-box-shadow: 1px 3px 29px 4px rgba(64,78,166,1);
+    box-shadow: 1px 3px 29px 4px rgba(64,78,166,1);
+    position: relative;
+    left: 2%;
+    top:4%;
+    transition: all 0.37s ease;
+}
+
+.card-img-top:hover{
+    -webkit-box-shadow: 1px 3px 29px 4px rgb(206, 41, 41);
+    -moz-box-shadow: 1px 3px 29px 4px rgb(206, 41, 41);
+    box-shadow: 1px 3px 29px 4px rgb(206, 41, 41);
+
+
 }
