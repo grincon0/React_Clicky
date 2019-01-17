@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar";
 import Row from "../components/Row";
 import Photos from "../Photos.json";
 import Footer from "../components/Footer";
+import "./style.css";
 
 class Main extends Component {
     state = {
@@ -32,6 +33,7 @@ class Main extends Component {
         let newState = {...this.state}
         for(let i = 0; i < this.state.clicked.length; i++){
             if(this.state.clicked[i] === id){
+                this.toggleIncorrect();
                 return this.setState({
                     points: 0,
                     gameOver: false,
@@ -50,6 +52,25 @@ class Main extends Component {
         newState.animals = this.indexShuffle(newState.animals);
 
         this.setState(newState);
+        
+
+     
+            
+       
+    }
+    toggleIncorrect(){
+        const elems = document.querySelectorAll('.foxes');
+        console.log('toggled');
+
+        elems.forEach( elem => {
+            elem.classList.add('wrong');
+        });
+
+        setTimeout(()=> {
+            elems.forEach( elem => {
+                elem.classList.remove('wrong');
+            });
+        }, 1050);
     }
     render() {
         let animals = this.state.animals;
@@ -60,7 +81,7 @@ class Main extends Component {
                 <Navbar score={this.state.points} high={this.state.highScore} />
                 <Hero />
                 <Container>
-                    <Row style={{margin: "5rem"}}>
+                    <Row  style={{margin: "5rem"}}>
                         <Col size="md-12">
                         {cards}
                         </Col>
